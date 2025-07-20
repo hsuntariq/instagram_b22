@@ -1,0 +1,49 @@
+.text-sm{
+    font-size: 0.8rem !important;
+}
+
+.text-xsm{
+    
+    font-size: 0.7rem !important;
+}
+.text-xxsm{
+    
+    font-size: 0.6rem !important;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+.cursor-pointer{
+    cursor: pointer !important;
+}
+
+.animate-content {
+    animation: spring 600ms ease-out forwards;
+}
+
+.more-btn:active{
+    scale: 0.97;
+}
+
+@keyframes spring {
+    0% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    60% {
+        transform: scale(0.9);
+    }
+    75% {
+        transform: scale(1.05);
+    }
+    90% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
