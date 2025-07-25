@@ -15,7 +15,8 @@
 
 
     $_SESSION['ticket'] = $u_name;
-
+    $_SESSION['fullname'] = $name;
+    
 
     header("Location: http://localhost:3000/index.php");
 

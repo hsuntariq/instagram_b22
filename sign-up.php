@@ -86,8 +86,11 @@
                 <div class="mb-3">
                     <input type="text" class="form-control text-sm" name="m_mail" placeholder="Mobile Number or Email">
                 </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control text-sm" name="password" placeholder="Password">
+                <div class="mb-3 position-relative">
+                    <input type="password" class="form-control sign-pass text-sm" name="password"
+                        placeholder="Password">
+                    <i class="bi bi-eye-slash text-sm cursor-pointer show-pass-icon d-none position-absolute"
+                        style="top:50%;right:10px;transform:translateY(-50%)"></i>
                 </div>
                 <div class="mb-3">
                     <input type="text" class="form-control text-sm" name="fullname" placeholder="Full Name">
@@ -111,6 +114,43 @@
         </div>
         <p class="text-muted">Get the app.</p>
     </div>
+
+    <script>
+    let sign_pass = document.querySelector('.sign-pass')
+    let show_pass_icon = document.querySelector('.show-pass-icon')
+    sign_pass.addEventListener('keyup', () => {
+        if (sign_pass.value.length > 0) {
+            show_pass_icon.classList.remove('d-none')
+        } else {
+            show_pass_icon.classList.add('d-none')
+
+        }
+    })
+
+    show_pass_icon.addEventListener('click', () => {
+        if (sign_pass.type == 'text') {
+            sign_pass.type = 'password'
+
+        } else {
+            sign_pass.type = 'text'
+        }
+
+
+        if (show_pass_icon.classList.contains('bi-eye')) {
+            show_pass_icon.classList.remove('bi-eye')
+            show_pass_icon.classList.add('bi-eye-slash')
+        } else {
+            show_pass_icon.classList.add('bi-eye')
+            show_pass_icon.classList.remove('bi-eye-slash')
+
+        }
+
+
+
+
+    })
+    </script>
+
 </body>
 
 </html>

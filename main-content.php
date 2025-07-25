@@ -18,7 +18,7 @@
 </div>
 
 
-<div class="card pb-3 col-xl-5 col-lg-6 col-md-8 border-0 shadow-lg my-4 rounded-md">
+<div class="card pb-3 col-xl-6 col-lg-7 col-md-9 border-0 shadow-lg my-4 rounded-md">
     <div class="d-flex p-2 justify-content-between align-items-center">
         <div class="d-flex  gap-1 align-items-center">
             <div class="rounded-circle  border-warning d-flex justify-content-center align-items-center"

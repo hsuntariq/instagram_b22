@@ -22,6 +22,7 @@
 
     <!-- sidebar footer -->
     <?php include './sidebar-footer.php' ?>
+    <?php include './post-modal.php' ?>
 
     <!-- overlay -->
     <div style="height: 100vh;width:100vw;background:rgba(0,0,0,0.6)"
@@ -95,11 +96,43 @@
             </div>
             <!-- main content -->
             <div style="height:97vh;overflow-y:scroll"
-                class="col-xl-8 col-md-10 p-5 d-flex flex-column align-items-center">
+                class="col-xl-7 col-md-10 p-5 d-flex flex-column align-items-center">
                 <?php include './main-content.php' ?>
             </div>
             <!-- user section -->
-            <div class="col-xl-2"></div>
+            <div class="col-xl-3 py-5">
+                <div class="d-flex">
+                    <div class="d-flex align-items-center gap-3">
+                        <img width="60px" height="60px" class="rounded-circle object-fit-cover"
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/46/PrimeMinisterNawazSharif.jpg"
+                            alt="">
+                        <div class="">
+                            <h6 class="m-0">
+
+                                <?php
+                                echo $_SESSION['ticket']
+                                ?>
+                            </h6>
+                            <p class="text-secondary m-0 text-sm">
+
+                                <?php
+                                echo $_SESSION['fullname']
+                                ?>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-between col-6 my-3">
+                    <h6 class="text-secondary text-sm">
+                        Suggested for you
+                    </h6>
+                    <h6 class="text-dark text-sm">
+                        See All
+                    </h6>
+                </div>
+            </div>
             <!-- message is fixed -->
 
         </div>
