@@ -24,6 +24,16 @@
     <?php include './sidebar-footer.php' ?>
     <?php include './post-modal.php' ?>
 
+
+    <?php 
+        if(isset($_SESSION['welcome'])){
+            include './welcome.php';
+        }
+
+        unset($_SESSION['welcome'])
+
+    ?>
+
     <!-- overlay -->
     <div style="height: 100vh;width:100vw;background:rgba(0,0,0,0.6)"
         class="position-fixed overlay d-none justify-content-center align-items-center top-0 z-3">

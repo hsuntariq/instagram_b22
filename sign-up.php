@@ -110,7 +110,7 @@
     </div>
     <div class="text-center mt-3 p-1 rounded-3 mx-auto text-sm bg-white shadow" style="max-width:350px">
         <div class="text-center mt-3">
-            <p class="text-muted">Have an account? <a href="#">Log in</a></p>
+            <p class="text-muted">Have an account? <a href="./login.php">Log in</a></p>
         </div>
         <p class="text-muted">Get the app.</p>
     </div>

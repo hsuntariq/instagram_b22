@@ -8,8 +8,10 @@ let choose_post = document.querySelector('.choose-post')
 let preview_image = document.querySelector('.preview-image')
 let model_content = document.querySelector('.content-modal')
 let b_arrow = document.querySelector('.b-arrow')
+let b_arrow2 = document.querySelector('.b-arrow2')
 let modal_heading = document.querySelector('.modal-heading')
 let next_btn = document.querySelector('.next-btn')
+let next_btn2 = document.querySelector('.next-btn2')
 let share_btn = document.querySelector('.share-btn')
 let post_section = document.querySelector('.post-section')
 let caption_section = document.querySelector('.caption-section')
@@ -51,10 +53,14 @@ b_arrow.addEventListener('click', (e) => {
     preview_image.classList.add('d-none')
     model_content.classList.remove('d-none')
     preview_image.src = ''
-
+    caption_section.style.width = '0%'
+    post_section.style.width = '100%'
+    next_btn.classList.add('d-none')
 })
 
 next_btn.addEventListener('click', () => {
     caption_section.style.width = '30%'
     post_section.style.width = '70%'
+    next_btn.classList.add('d-none')
+    next_btn2.classList.remove('d-none')
 })

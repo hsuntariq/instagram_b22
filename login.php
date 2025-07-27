@@ -1,3 +1,6 @@
+<?php 
+    session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,20 +12,21 @@
 </head>
 
 <body>
+
     <div class="container row mx-auto align-items-center min-vh-100">
         <div class="col-lg-6 ">
             <img src="https://static.cdninstagram.com/rsrc.php/v4/yE/r/e8VpFK6GuF9.png" class="d-block  mx-auto"
                 width="50%" alt="">
         </div>
         <div class="col-lg-3">
-            <form action="">
+            <form action="./log-user.php" method="POST">
                 <img class="d-none d-lg-block mx-auto"
                     src="https://logos-world.net/wp-content/uploads/2020/05/Instagram-Logo-2016-present.png"
                     width="100px" alt="">
-                <input type="text" class="form-control my-2 rounded-1 text-sm" style="background-color:#FAFAFA"
-                    placeholder="Phone number,username, or email">
-                <input type="password" class="form-control my-2 rounded-1 text-sm" style="background-color:#FAFAFA"
-                    placeholder="Password">
+                <input name="m_mail" type="text" class="form-control my-2 rounded-1 text-sm"
+                    style="background-color:#FAFAFA" placeholder="Phone number,username, or email">
+                <input name="password" type="password" class="form-control my-2 rounded-1 text-sm"
+                    style="background-color:#FAFAFA" placeholder="Password">
                 <button class="btn w-100 text-white btn-info rounded-3 btn-sm">
                     Login
                 </button>
@@ -38,6 +42,16 @@
                 <i class="bi bi-facebook text-primary"></i>
                 <p class="text-primary text-sm m-0 fw-semibold">Log in with facebook</p>
             </div>
+
+            <?php 
+                if(isset($_SESSION['invalid_credentials'])){
+                    echo "<p class='text-danger text-sm text-center' style='white-space:no-wrap'>{$_SESSION['invalid_credentials']}</p>";
+                }
+
+                unset($_SESSION['invalid_credentials']);
+
+            ?>
+
 
             <p class="text-sm text-dark fw-semibold text-center">
                 Forgot Password
