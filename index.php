@@ -113,9 +113,21 @@
             <div class="col-xl-3 py-5">
                 <div class="d-flex">
                     <div class="d-flex align-items-center gap-3">
-                        <img width="60px" height="60px" class="rounded-circle object-fit-cover"
-                            src="https://upload.wikimedia.org/wikipedia/commons/4/46/PrimeMinisterNawazSharif.jpg"
-                            alt="">
+                        <?php 
+                                                include './config.php';
+                                                $user_id = $_SESSION['user_id'];
+                                                $user_image = "SELECT profile_image FROM users WHERE id = $user_id";
+                                                $result = mysqli_query($connection,$user_image);
+                                                foreach ($result as $value) {
+                                                if($value['profile_image'] == NULL){
+                                                        echo "<img src='https://cdn-icons-png.flaticon.com/256/3177/3177440.png' alt='Profile' width='60px' height='60px' class='rounded-circle object-fit-cover' id='profileImage'
+                                                style='cursor:pointer;'>";
+                                                }else{
+                                                    echo "<img src='./profile_images/{$value['profile_image']}' alt='Profile' width='60px' height='60px' class='rounded-circle object-fit-cover' id='profileImage'>";
+                                                }
+                                                
+                                                }
+                                        ?>
                         <div class="">
                             <h6 class="m-0">
 

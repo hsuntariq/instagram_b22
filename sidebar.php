@@ -67,14 +67,15 @@
                 <i class="bi bi-heart"></i>
                 <h6 class="m-0 d-none d-lg-block">Notifications</h6>
             </div>
-            <div class="d-flex gap-3 align-items-center">
+            <div class="d-flex create cursor-pointer gap-3 align-items-center">
                 <i class="bi bi-plus-square"></i>
                 <h6 class="m-0 d-none d-lg-block">Create</h6>
             </div>
-            <div class="d-flex gap-3 align-items-center">
+            <a href="./profile.php" class="d-flex gap-3 align-items-center menu-item-profile"
+                style="text-decoration:none;color:inherit;">
                 <i class="bi bi-person-fill"></i>
                 <h6 class="m-0 d-none d-lg-block">Profile</h6>
-            </div>
+            </a>
         </ul>
 
     </div>
