@@ -38,7 +38,8 @@
     <div style="height: 100vh;width:100vw;background:rgba(0,0,0,0.6)"
         class="position-fixed overlay d-none justify-content-center align-items-center top-0 z-3">
         <i class="bi bi-x-lg close-overlay text-white position-fixed" style="top:10px;right:10px;cursor:pointer;"></i>
-        <div class="col-xl-7 col-lg-8 my-overlay-content rounded-5 col-md-10 col-11 mx-auto" style="height: 70vh;">
+        <div class="col-xl-7 col-lg-8 my-overlay-content rounded-5 col-md-10 col-11 mx-auto position-relative"
+            style="height: 70vh;z-index:888">
             <div class="row h-100 ">
                 <div class="col-sm-7  p-0">
                     <img width="100%" height="100%" class="object-fit-cover rounded-start-2"
@@ -61,7 +62,13 @@
                     </div>
 
                     <!-- comments section -->
+                    <?php 
+                        include './config.php';
+                        $comments = "SELECT * FROM comments";
+                        $comment_result = mysqli_query($connection,$comments);
 
+                        foreach($comment_result as $comm){
+                        ?>
                     <div class="d-flex p-3 justify-content-between">
                         <div class="d-flex justify-content-between align-items-center w-100">
                             <div class="d-flex  gap-1 align-items-center">
@@ -73,7 +80,9 @@
                                 <div class="">
                                     <div class="d-flex gap-2">
                                         <h6 class="m-0" style="font-size:0.7rem">Khan Sahab</h6>
-                                        <p style="font-size:0.6rem" class="text-secondary m-0">lorwem</p>
+                                        <p style="font-size:0.6rem" class="text-secondary m-0">
+                                            <?php echo $comm['comment']?>
+                                        </p>
                                     </div>
                                     <div class="d-flex gap-2">
                                         <p class="m-0 text-xxsm">5d</p>
@@ -88,6 +97,7 @@
                     </div>
 
 
+                    <?php }?>
 
 
                 </div>
@@ -106,7 +116,7 @@
             </div>
             <!-- main content -->
             <div style="height:97vh;overflow-y:scroll"
-                class="col-xl-7 col-md-10 p-5 d-flex flex-column align-items-center">
+                class="col-xl-7 col-md-10 p-5 d-flex flex-column main-content align-items-center">
                 <?php include './main-content.php' ?>
             </div>
             <!-- user section -->

@@ -65,7 +65,7 @@
             $ext = end($split);
             if($ext == 'mp4' || $ext == 'mkv'){
                 echo "<i class='bi bi-volume-mute volume-btn d-flex position-absolute  justify-content-center align-items-center text-white rounded-circle'
-            style='width:25px;height:25px;background-color:rgba(0,0,0,0.6);right:10px;bottom:10px;cursor:pointer;z-index:222'></i>";
+            style='width:25px;height:25px;background-color:rgba(0,0,0,0.6);right:10px;bottom:10px;cursor:pointer;z-index:22'></i>";
                 echo "<video autoplay loop muted class='object-fit-cover post-video' src='./post_images/{$item['image']}' width='100%' height='500px' alt=''></video>";
             }else{
                 echo "<img class='object-fit-cover' src='./post_images/{$item['image']}' width='100%'
@@ -80,7 +80,8 @@
     <div class="p-2 d-flex justify-content-between">
         <div class="d-flex gap-2">
             <i class="bi bi-heart fw-bold fs-6 cursor-pointer"></i>
-            <i class="bi bi-chat fw-bold fs-6 cursor-pointer comment-icon"></i>
+            <i data-post_id="<?php echo $item['post_id']?>"
+                class="bi bi-chat fw-bold fs-6 cursor-pointer comment-icon"></i>
             <i class="bi bi-send fw-bold fs-6 cursor-pointer"></i>
         </div>
         <i class="bi bi-bookmark fw-bold fs-6"></i>
@@ -109,10 +110,13 @@
         View All 9 comments
     </p>
 
-    <form action="" class="px-2 w-100">
-        <input style="outline-width: 0;" type="text"
-            class="border w-100 border-end-0 text-secondary-empahsis text-sm border-top-0 border-start-0 border-bottom-1"
+    <form action="./add-comment.php" method="POST" class="px-2 position-relative w-100">
+        <input type="hidden" name="p_id" value="<?php echo $item['post_id'] ?>">
+        <input name="comment" style="outline-width: 0;" type="text"
+            class="border w-100 border-end-0 comments text-secondary-empahsis text-sm border-top-0 border-start-0 border-bottom-1"
             placeholder="Add a comment...">
+        <button class="position-absolute text-secondary bg-transparent border-0 end-0 " style="rotate: 45deg;"><i
+                class="bi bi-send"></i></button>
     </form>
 
 

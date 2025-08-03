@@ -1,4 +1,4 @@
-let c_icon = document.querySelector('.comment-icon')
+let c_icon = document.querySelectorAll('.comment-icon')
 let overlay = document.querySelector('.overlay')
 let close_btn = document.querySelector('.close-overlay')
 let content = document.querySelector('.my-overlay-content')
@@ -21,12 +21,22 @@ let post_underlay = document.querySelector('.post-underlay')
 let post_box = document.querySelector('.post-box')
 let post_video = document.querySelectorAll('.post-video')
 let volume_btn = document.querySelectorAll('.volume-btn')
+let main_content = document.querySelector('.main-content')
 
 
-c_icon.addEventListener('click', () => {
-    overlay.classList.remove('d-none')
-    overlay.classList.add('d-flex')
-    content.classList.add('animate-content')
+
+
+
+
+
+
+c_icon.forEach((item, index) => {
+
+    item.addEventListener('click', () => {
+        overlay.classList.remove('d-none')
+        overlay.classList.add('d-flex')
+        content.classList.add('animate-content')
+    })
 })
 close_btn.addEventListener('click', () => {
     overlay.classList.remove('d-flex')
@@ -111,11 +121,33 @@ post_box.addEventListener('click', (e) => {
 // })
 
 
+
+// main_content.addEventListener('scroll', (e) => {
+//     let trigger = window.innerHeight / 2
+//     console.log(post_video[0].getBoundingClientRect())
+// })
+
+
 volume_btn.forEach((item, index) => {
     item.addEventListener('click', () => {
-        post_video.forEach((video, index) => {
-            video.muted = true
-        })
-        post_video[index].muted = false
+
+        if (post_video[index].muted) {
+            post_video.forEach((video, index) => {
+                video.muted = true
+            })
+            post_video[index].muted = false
+            item.classList.remove('bi-volume-mute')
+            item.classList.add('bi-volume-up')
+
+        } else {
+            post_video.forEach((video, index) => {
+                video.muted = true
+            })
+            post_video[index].muted = true
+            item.classList.add('bi-volume-mute')
+            item.classList.remove('bi-volume-up')
+
+
+        }
     })
 })
