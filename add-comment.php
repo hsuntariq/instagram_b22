@@ -7,8 +7,12 @@
     $currentPage = $_SERVER['HTTP_REFERER'];
 
     $add = "INSERT INTO comments (comment,user_id,post_id) VALUES ('$comment',$user_id,$post_id)";
-    mysqli_query($connection,$add);
-    header("Location: $currentPage");
+$result =     mysqli_query($connection,$add);
+if($result){
+    echo 1;
+}else{
+    echo 0;
+}
 
 
 ?>
